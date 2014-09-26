@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "StudyMoney": {
+            "applicationId": "2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", 
+            "masterKey": "KG05jarSRSxzDPkiIsGdRe4SliB7Wj8nNtLAKxyL"
+        }, 
+        "_default": {
+            "link": "StudyMoney"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.0"
+    }
+}
