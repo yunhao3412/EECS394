@@ -1,6 +1,7 @@
 
 <html>
   <head>
+    <!-- Credit to Shanimal on StackExchange for template code -->
     <title>My ParseApp site</title>
     <style>
     body { font-family: Helvetica, Arial, sans-serif; }
@@ -10,14 +11,53 @@
     em { font-family: monospace; }
     a { color: #5298fc; text-decoration: none; }
     </style>
-    <script src="js/underscore.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
   </head>
   <body>
+
     <div>
-    <script>
-      var compiled = _.template("hello: <%= name %>");
-      compiled({name: 'moe'});
-    </script>
+      <!-- Template -->
+      <script type="text/template" id="study-card">  
+        <div class = "cardpadding">
+            <div class = "container-fluid card">
+              <div class = "row">
+                <div class = "col-sm-8">
+                  <h1> <%= title => </h1>
+                </div>
+                <div class = "col-sm-4 text-right">
+                  <h2><%= pay =></h2>
+                </div>
+              </div>
+              <div class = "row">
+                <div class = "col-sm-offset-1 col-sm-11">
+                  <h2><%= reqs =></h2>
+                </div>
+              </div>
+              <div class = "row">
+                <div class = "col-sm-6">
+                  <h3>Expires in: <%= exp => days</h3>
+                </div>
+                <div class = "col-sm-6 text-right">
+                  <h3><%= dept =></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+      </script>
     </div>
+
+    <div id="target"></div>
+
+    <script type="text/javascript">
+      var items = [
+      {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}, 
+      {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}
+      ];
+
+      //var template = _.template($("#study-card").html());
+      //$("#target").html(template({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}));
+      $("#target").html(_.template(template, {items:items}));
+    </script>
   </body>
 </html>
