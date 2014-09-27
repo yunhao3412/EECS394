@@ -14,7 +14,8 @@ $(function() {
       pay: "N/A",
       expiration: "N/A",
       description: "N/A",
-      contact: "N/A"
+      contact: "N/A",
+      URL: "N/A"
     }
   })
   
