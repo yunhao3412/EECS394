@@ -11,64 +11,51 @@
     em { font-family: monospace; }
     a { color: #5298fc; text-decoration: none; }
     </style>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
   </head>
   <body>
-    <!-- Install jQuery and underscore -->
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
-
-    <!-- Create your template -->
-    <script type="foo/bar" id='studyCard'>
+    <!-- Template -->
+    <script type="text/template" id="study-card">  
       <div class = "cardpadding">
           <div class = "container-fluid card">
             <div class = "row">
               <div class = "col-sm-8">
-                <h1> <%= title %> </h1>
+                <h1> <%= title => </h1>
               </div>
               <div class = "col-sm-4 text-right">
-                <h2><%= pay %></h2>
+                <h2><%= pay =></h2>
               </div>
             </div>
             <div class = "row">
               <div class = "col-sm-offset-1 col-sm-11">
-                <h2><%= reqs %></h2>
+                <h2><%= reqs =></h2>
               </div>
             </div>
             <div class = "row">
               <div class = "col-sm-6">
-                <h3>Expires in: <%= exp %> days</h3>
+                <h3>Expires in: <%= exp => days</h3>
               </div>
               <div class = "col-sm-6 text-right">
-                <h3><%= dept %></h3>
+                <h3><%= dept =></h3>
               </div>
             </div>
           </div>
-        
-      </div>
+        </div>
     </script>
-
-    <!-- Create your target -->
 
     <div id="target"></div>
 
-    <!-- Write some code to fetch the data and apply template -->
-
     <script type="text/javascript">
       var items = [
-        {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}, 
-        {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}
+      {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}, 
+      {title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}
       ];
 
       //var template = _.template($("#study-card").html());
       //$("#target").html(template({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}));
-
-      var temp = $("#studyCard").html();
-      var us_temp = _.template(temp);
-      $("#target").html(_.template(us_temp({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"})));
-
-      //var template = $("#studyCard").html();
-      //$("#target").html(_.template(template,{items:items}));
+      var template = $("#study-card").html();
+      $("#target").html(_.template(template,{items:items}));
     </script>
   </body>
 </html>
