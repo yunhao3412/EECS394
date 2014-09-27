@@ -10,38 +10,13 @@
     em { font-family: monospace; }
     a { color: #5298fc; text-decoration: none; }
     </style>
-    <script src="js/underscore/underscore.js"></script>
+    <script src="js/underscore.js"></script>
   </head>
   <body>
     <div>
     <script>
-      var testTemplate = _.template("<div class = "container" id = "box" style ="
-    border-style: solid;
-    border-width: 1px;
-    width: 400px;">
-    <div class = "row">
-      <div class = "col-md-10">
-        <h1>Sleep Study</h1>
-      </div>
-      <div class = "col-md-2">
-        <h3>$$</h3>
-      </div>
-    </div>
-    <div class = "row">
-      <div class = "col-md-offset-1 col-md-11">
-        <h3>Req: live in a dorm</h3>
-      </div>
-    </div>
-    <div class = "row">
-      <div class = "col-md-6">
-        Expires in: 5 days
-      </div>
-      <div class = "col-md-offset-2 col-md-4">
-        Kellogg
-      </div>
-    </div>
-  </div>")
-      testTemplate();
+      var compiled = _.template("hello: <%= name %>");
+      compiled({name: 'moe'});
     </script>
     </div>
   </body>
