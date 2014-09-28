@@ -11,12 +11,15 @@
     em { font-family: monospace; }
     a { color: #5298fc; text-decoration: none; }
     </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.1.15.min.js"></script>
   </head>
   <body>
     <!-- Install jQuery and underscore -->
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+
 
     <!-- Create your template -->
     <script type="foo/bar" id='studyCard'>
@@ -65,7 +68,7 @@
 
       var temp = $("#studyCard").html();
       var us_temp = _.template(temp);
-      $("#target").html(_.template(us_temp({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"})));
+      $("#target").html(us_temp(items[0]));
 
       //var template = $("#studyCard").html();
       //$("#target").html(_.template(template,{items:items}));
