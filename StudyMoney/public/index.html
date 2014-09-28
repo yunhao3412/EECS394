@@ -76,7 +76,22 @@
 
       //var template = _.template($("#study-card").html());
       //$("#target").html(template({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}));
+      Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
+    
+      var ResearchStudy = Parse.Object.extend("ResearchStudy");
+      var query = new Parse.Query(ResearchStudy);
+      var testing;
+      query.find({
+              success: function(results) {
+                  results.forEach(function(result){
+                      testing.push(result.attributes);
+                  });
+              },
 
+              error: function(error) {
+                // error is an instance of Parse.Error.
+              }
+            });
       var temp = $("#studyCard").html();
       var us_temp = _.template(temp);
       var createCard = function(a) {$("#target").append(us_temp(a))};
