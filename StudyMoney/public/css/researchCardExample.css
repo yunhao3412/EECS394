@@ -9,20 +9,21 @@
 	box-shadow: 0px 3px 5px #888888;
 }
 
+#titleimg {
+	height: 80%;
+	max-width: 80%;
+	vertical-align: middle;
+}
+
 body {
 	background-color: RGB(222,222,222);
 	padding-bottom: 200px;
 }
 
 .header {
-	height: 10%;
+	height: 15%;
 	width: auto;
 	background-color: RGB(46,190,96);
-}
-
-.header p {
-	font-size: auto;
-	font-weight: bold;
 }
 
 .pricecard {
@@ -55,11 +56,6 @@ body {
 }
 .col-bottom {
     vertical-align:bottom;
-}
-
-/* fix firefox responsive images */
-.img-responsive {
-    width: 100%
 }
 
 /* columns of same height styles */
