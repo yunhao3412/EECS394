@@ -1,0 +1,119 @@
+.cardpadding {
+	padding-left: 5%; 
+	padding-right: 5%;
+}
+
+.card {
+	max-width: 900px;
+	background-color: white;
+	box-shadow: 0px 3px 5px #888888;
+}
+
+body {
+	background-color: RGB(222,222,222);
+	padding-bottom: 200px;
+}
+
+.header {
+	height: 10%;
+	width: auto;
+	background-color: RGB(46,190,96);
+}
+
+.header p {
+	font-size: auto;
+	font-weight: bold;
+}
+
+.pricecard {
+	font-size: 8em;
+}
+
+.cardTitle {
+	font-size: 4em;
+	font-weight: bold;
+}
+
+.cardReq {
+	font-size: 3em;
+}
+
+.cardBottom {
+	font-size: 3em;
+    font-style: italic;
+}
+
+
+
+
+/* vertical alignment styles */
+.col-top {
+    vertical-align:top;
+}
+.col-middle {
+    vertical-align:middle;
+}
+.col-bottom {
+    vertical-align:bottom;
+}
+
+/* fix firefox responsive images */
+.img-responsive {
+    width: 100%
+}
+
+/* columns of same height styles */
+.container-xs-height {
+    display:table;
+    padding-left:0px;
+    padding-right:0px;
+}
+.row-xs-height {
+    display:table-row;
+}
+.col-xs-height {
+    display:table-cell;
+    float:none;
+}
+@media (min-width: 768px) {
+    .container-sm-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-sm-height {
+        display:table-row;
+    }
+    .col-sm-height {
+        display:table-cell;
+        float:none;
+    }
+}
+@media (min-width: 992px) {
+    .container-md-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-md-height {
+        display:table-row;
+    }
+    .col-md-height {
+        display:table-cell;
+        float:none;
+    }
+}
+@media (min-width: 1200px) {
+    .container-lg-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-lg-height {
+        display:table-row;
+    }
+    .col-lg-height {
+        display:table-cell;
+        float:none;
+    }
+}
