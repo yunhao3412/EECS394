@@ -23,7 +23,7 @@
           <div class = "row row-xs-height">
             <div class = "col-xs-3 col-xs-height col-middle">
               <div class = "text-center pricecard">
-                <% pay.toString() %>
+                $<%= pay %>
               </div>
             </div>
             <div class = "col-xs-9 col-xs-height">
@@ -41,7 +41,7 @@
                 <br>
                 <div class = "row">
                   <div class = "col-xs-4">
-                    <span class = "cardBottom"><%= duration %> Hours</span>
+                    <span class = "cardBottom"><%= duration %></span>
                   </div>
                   <div class = "col-xs-8 text-right">
                     <span class = "cardBottom">Deadline: <%= expiration %> days</span>
@@ -68,34 +68,22 @@
     <!-- Some code to fetch the data and apply template -->
 
     <script type="text/javascript">
-      var testing = [
-        {title:"study title", pay:"$10", reqs:"18-35 year old native English speaker", dur: "0", exp:"0", dept:"Hearing and Language Lab"}, 
-        {title:"Speech Production and Perception Experiment", pay:"$10", reqs:"Native speaker of English, currently enrolled in French 121-2 or 125-3, over 18, normal speech and hearing", dur: "1-6", exp:"0", dept:"Linguistics?"}, 
-        {title:"Language and Cognition Study", pay:"$10", reqs:"A fluent speaker of Korean and English & can read in Korean and English", dur: "?", exp:"0", dept:"Psycholinguistics"}
-      ];
-
-      //var template = _.template($("#study-card").html());
-      //$("#target").html(template({title:"study title", pay:"$X", reqs:"some requirements", exp:"0", dept:"Blah Dept"}));
       Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
-    
+      var temp = $("#studyCard").html();
+      var us_temp = _.template(temp);
+      var createCard = function(a) {$("#target").append(us_temp(a))};
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
       var query = new Parse.Query(ResearchStudy);
-      var items = [];
       query.find({
               success: function(results) {
-                  results.forEach(function(result){
-                      items.push(result.attributes);
+                results.forEach(function(result){
+                    createCard(result.attributes)
                   });
               },
-
               error: function(error) {
                 // error is an instance of Parse.Error.
               }
             });
-      var temp = $("#studyCard").html();
-      var us_temp = _.template(temp);
-      var createCard = function(a) {$("#target").append(us_temp(a))};
-      _.each(items, createCard);
 
       //var template = $("#studyCard").html();
       //$("#target").html(_.template(template,{items:items}));
