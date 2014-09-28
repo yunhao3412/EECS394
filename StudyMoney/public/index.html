@@ -11,7 +11,7 @@
     <!-- Install jQuery and underscore -->
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
-    <script src="//www.parsecdn.com/js/parse-1.1.15.min.js"></script>
+    <script src="https://www.parsecdn.com/js/parse-1.1.15.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </head>
   <body>
@@ -68,7 +68,7 @@
     <!-- Some code to fetch the data and apply template -->
 
     <script type="text/javascript">
-      var items = [
+      var testing = [
         {title:"study title", pay:"$10", reqs:"18-35 year old native English speaker", dur: "0", exp:"0", dept:"Hearing and Language Lab"}, 
         {title:"Speech Production and Perception Experiment", pay:"$10", reqs:"Native speaker of English, currently enrolled in French 121-2 or 125-3, over 18, normal speech and hearing", dur: "1-6", exp:"0", dept:"Linguistics?"}, 
         {title:"Language and Cognition Study", pay:"$10", reqs:"A fluent speaker of Korean and English & can read in Korean and English", dur: "?", exp:"0", dept:"Psycholinguistics"}
@@ -80,11 +80,11 @@
     
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
       var query = new Parse.Query(ResearchStudy);
-      var testing;
+      var items = [];
       query.find({
               success: function(results) {
                   results.forEach(function(result){
-                      testing.push(result.attributes);
+                      items.push(result.attributes);
                   });
               },
 
