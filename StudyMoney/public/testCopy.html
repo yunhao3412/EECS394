@@ -6,8 +6,10 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/researchCardExample.css">
+
     <!-- Install jQuery and underscore -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
     <script src="//www.parsecdn.com/js/parse-1.1.15.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -16,46 +18,60 @@
 
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
-      <div style = "    padding-left: 10%; padding-right: 10%;">
-          <div class = "container-fluid" id = "box" style ="
-            border-style: solid;
-            border-width: 1px;">
-            <div class = "row">
-              <div class = "col-sm-8">
-                <h1><%= title %></h1>
-              </div>
-              <div class = "col-sm-4 text-right">
-                <h2><%= pay %></h2>
+    <div class = "cardpadding">
+        <div class = "container-fluid card">
+          <div class = "row row-xs-height">
+            <div class = "col-xs-3 col-xs-height col-middle">
+              <div class = "text-center pricecard">
+                <%= pay %>
               </div>
             </div>
-            <div class = "row">
-              <div class = "col-sm-offset-1 col-sm-11">
-                <h2>Req: <%= reqs %> </h2>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-sm-6">
-                <h3>Expires in: <%= exp %> days</h3>
-              </div>
-              <div class = "col-sm-6 text-right">
-                <h3><%= dept %></h3>
+            <div class = "col-xs-9 col-xs-height">
+              <div class = "infocard">
+                <div class = "row">
+                  <div class = "col-xs-12">
+                    <span class = "cardTitle"><%= title %></span>
+                  </div>
+                </div>
+                <div class = "row">
+                  <div class = "col-xs-12">
+                      <span class = "cardReq"><%= reqs %></span>
+                  </div>
+                </div>
+                <br>
+                <div class = "row">
+                  <div class = "col-xs-4">
+                    <span class = "cardBottom"><%= dur %> Hours</span>
+                  </div>
+                  <div class = "col-xs-8 text-right">
+                    <span class = "cardBottom">Deadline: <%= exp %> days</span>
+                  </div>
+                </div>
+                <br>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <br>
     </script>
 
-    <!-- Create your target -->
+    <div class = "header">
+      <center><img src = "img/title.png" id = "titleimg"></center>
+    </div>
+    <br>
+
+    <!-- Create target -->
 
     <div id="target"></div>
 
-    <!-- Write some code to fetch the data and apply template -->
+    <!-- Some code to fetch the data and apply template -->
 
     <script type="text/javascript">
       var items = [
-        {title:"study title", pay:"$10", reqs:"18-35 year old native English speaker", exp:"0", dept:"Hearing and Language Lab"}, 
-        {title:"Speech Production and Perception Experiment", pay:"$10", reqs:"Native speaker of English, currently enrolled in French 121-2 or 125-3, over 18, normal speech and hearing", exp:"0", dept:"Linguistics?"}, 
-        {title:"Language and Cognition Study", pay:"$10", reqs:"A fluent speaker of Korean and English & can read in Korean and English", exp:"0", dept:"Psycholinguistics"}
+        {title:"study title", pay:"$10", reqs:"18-35 year old native English speaker", dur: "0", exp:"0", dept:"Hearing and Language Lab"}, 
+        {title:"Speech Production and Perception Experiment", pay:"$10", reqs:"Native speaker of English, currently enrolled in French 121-2 or 125-3, over 18, normal speech and hearing", dur: "1-6", exp:"0", dept:"Linguistics?"}, 
+        {title:"Language and Cognition Study", pay:"$10", reqs:"A fluent speaker of Korean and English & can read in Korean and English", dur: "?", exp:"0", dept:"Psycholinguistics"}
       ];
 
       //var template = _.template($("#study-card").html());
