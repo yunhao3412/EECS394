@@ -12,7 +12,11 @@
 #titleimg {
 	height: 80%;
 	max-width: 80%;
-	vertical-align: middle;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 body {
@@ -22,7 +26,7 @@ body {
 
 .header {
 	height: 15%;
-	width: auto;
+	width: 100%;
 	background-color: RGB(46,190,96);
 }
 
