@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>394</title>
+     <meta name="viewport" content="width=device-width, initial-sca=1"/>
+     <link rel="stylesheet" href="themes/test.min.css" />
+     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+     <link rel="stylesheet"   href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+    
+     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+     
+     <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+     
+     <style>
+     .footer-button-left,
+     .footer-button-right {
+         position: absolute;
+         margin: 0;
+         top: auto;
+         bottom: 0.24em;
+     }
+     .footer-button-left {
+         left: 0.4em;
+     }
+     .footer-button-right {
+         right: 0.4em;
+     }
+     
+
+     </style>
+     
+  </head>
+      <body>
+	<div data-role="header">
+	    <a href="#" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-grid">View</a>
+	    <span class="ui-title"></span>
+	</div>
+	
+	<div role="main">
+		<div class="ui-body ui-body-a ui-corner-all" style="margin: 10px ">
+			 <div class = "ui-body">
+                 <h3 style="text-align:center">Brain and Emotional</h3>
+	        	 </div>
+ 		</div> 
+	 
+	<table style="width:98%; margin: 10px">
+	   <tr>
+		 <td>$$</td>
+		 <td style="text-align: right">DD/MM/YYYY</td>
+	   </tr>
+ 	</table>
+	
+	<div class="ui-body ui-body-a ui-corner-all" style="margin: 10px ">
+		<a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="picture1.jpg" alt="Picture1" style="width:30%"></a>
+	
+		<a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="picture2.jpg" alt="Picture2" style="width:30%"></a>
+	
+		<a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="picture3.jpg" alt="Picture3" style="width:30%"></a>
+	
+		<div data-role="popup" id="popup1" data-overlay-theme="b" data-theme="b" data-corners="false">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="picture1.jpg" style="max-height:512px;" alt="Picture1">
+		</div>
+		
+		<div data-role="popup" id="popup2" data-overlay-theme="b" data-theme="b" data-corners="false">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="picture2.jpg" style="max-height:512px;" alt="Picture2">
+		</div>
+		
+		<div data-role="popup" id="popup3" data-overlay-theme="b" data-theme="b" data-corners="false">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="picture3" style="max-height:512px;" alt="Picture3">
+		</div>
+	</div>
+	
+	<div data-role="collapsibleset" data-theme="b" data-content-theme="b" style="margin: 10px">
+		<div data-role="collapsible">
+			<h3>Type</h3>
+			<p>I'm the collapsible content for Type</p>
+		</div>   
+		
+		<div data-role="collapsible">
+			<h3>Department</h3>
+      		  	<p>I'm the collapsible content for Department</p>
+		</div>
+      	  	
+		<div data-role="collapsible">
+          	        <h3>Requires</h3>
+      		 	<p>I'm the collapsible content for elig/res</p>
+      	  	</div>
+      	  	
+		<div data-role="collapsible">
+          	      	<h3>Descript</h3>
+      		  	<p>I'm the collapsible content for descript</p>
+      	  	</div>
+      
+  	</div>
+  	<!--
+	<div role="main">
+		<div class="ui-body ui-body-a ui-corner-all" style="margin: 10px">
+			<h4>Type</h4>
+			<p>..............</p>
+  		        <h4>Department</h4>
+			<p>..............</p>
+			<h4>elig/res</h4>
+			<p>..............</p>
+			<h4>Descript</h4>
+			<p>..............</p>
+		</div>
+	</div>
+		-->
+	
+  	<div role="main">
+		<div class="ui-body ui-body-a ui-corner-all" style="margin: 10px">
+			<p>Review</P>
+			</div>
+		</div>
+		
+	<div data-role="footer">
+	    <span class="ui-title"></span>
+	    <a href="mailto:wangyunhao88@gamil.com" target="_top" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-action">Email</a>
+	    <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Apply</a>
+	</div>
+		   
+     </body>
+</html>
