@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <title>394</title>
+     <title>Pages</title>
      <meta name="viewport" content="width=device-width, initial-sca=1"/>
+     <meta name="apple-mobile-web-app-capable" content="yes" /> 
      <link rel="stylesheet" href="themes/test.min.css" />
      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
      <link rel="stylesheet"   href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
@@ -116,8 +117,34 @@
 	<div data-role="footer">
 	    <span class="ui-title"></span>
 	    <a href="mailto:wangyunhao88@gamil.com" target="_top" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-action">Email</a>
-	    <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Apply</a>
+	    <a href="http://www.brainMAPD.org" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Apply</a>
 	</div>
+	
+	<script type="text/javascript">
+	
+	Parse.initialize("E3lxNKaO6b1XijEXAsnq2MNaHbkXQlchHYxslMrH", "rHu4V5of1MU9XNF9aocgNxUeOYGDzueTgQC5VgVl");
+
+	if(("standalone" in window.navigator) && window.navigator.standalone){
+
+	var noddy, remotes = false;
+
+	document.addEventListener('click', function(event) {
+
+	noddy = event.target;
+
+	while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+	noddy = noddy.parentNode;
+	}
+
+	if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
+	{
+	event.preventDefault();
+	document.location.href = noddy.href;
+	}
+
+	},false);
+	}
+	</script>
 		   
      </body>
 </html>
