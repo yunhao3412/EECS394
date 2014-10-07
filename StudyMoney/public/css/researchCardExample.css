@@ -7,6 +7,14 @@
 	max-width: 900px;
 	background-color: white;
 	box-shadow: 0px 3px 5px #888888;
+    z-index: 1;
+}
+
+.cardinfo {
+    max-width: 900px;
+    background-color: white;
+    box-shadow: 0px 3px 5px #888888 inset;
+    z-index: -1;
 }
 
 .shadow {
@@ -57,6 +65,14 @@ body {
     font-style: italic;
 }
 
+.cardDescription {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.buttontext {
+    font-size: 3em;
+}
 
 /* vertical alignment styles */
 .col-top {

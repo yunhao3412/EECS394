@@ -20,44 +20,64 @@
 
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
-    <a href= "<%= URL %>">
     <div class = "cardpadding">
-        <div class = "container-fluid card">
-          <div class = "row row-xs-height">
-            <div class = "col-xs-3 col-xs-height col-middle">
-              <div class = "text-center pricecard">
-                $<%= pay %>
+          <a data-toggle="collapse" href="#collapse<%= objectId %>">
+          <div class = "container-fluid card">
+            <div class = "row row-xs-height">
+              <div class = "col-xs-3 col-xs-height col-middle">
+                <div class = "text-center pricecard">
+                  $<%= pay %>
+                </div>
               </div>
-            </div>
-            <div class = "col-xs-9 col-xs-height">
-              <div class = "infocard">
-                <div class = "row">
-                  <div class = "col-xs-12">
-                    <span class = "cardTitle"><%= title %></span>
+              <div class = "col-xs-9 col-xs-height">
+                <div class = "infocard">
+                  <div class = "row">
+                    <div class = "col-xs-12">
+                      <span class = "cardTitle"><%= title %></span>
+                    </div>
                   </div>
+                  <div class = "row">
+                    <div class = "col-xs-12">
+                        <span class = "cardReq">Reqs: <%= requirements %></span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class = "row">
+                    <div class = "col-xs-6">
+                      <span class = "cardBottom"><%= duration %></span>
+                    </div>
+                    <div class = "col-xs-6 text-right">
+                      <span class = "cardBottom"><%= expiration %> days left</span>
+                    </div>
+                  </div>
+                  <br>
                 </div>
-                <div class = "row">
-                  <div class = "col-xs-12">
-                      <span class = "cardReq">Reqs: <%= requirements %></span>
-                  </div>
-                </div>
-                <br>
-                <div class = "row">
-                  <div class = "col-xs-6">
-                    <span class = "cardBottom"><%= duration %></span>
-                  </div>
-                  <div class = "col-xs-6 text-right">
-                    <span class = "cardBottom"><%= expiration %> days left</span>
-                  </div>
-                </div>
-                <br>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <br>
-      </a>
+          </a>
+          <div id="collapse<%= objectId %>" class="collapse">
+          <div class = "container-fluid cardinfo">
+            <div class = "row row-xs-height">
+              <div class = "col-offset-xs-2 col-xs-10 col-xs-height">
+                <br>
+                <span class = "cardDescription">Description</span>
+                <br>
+                <span class = "cardReq"><%= description %></span>
+              </div>
+            </div>
+            <br>
+            <div class = "row row-xs-height descriptionbuttonrow">
+              <div class = "col-xs-12 col-xs-height text-center">
+                <a href="mailto:<%= contact %>"><button type="button" class="btn btn-primary btn-lg btn-block"><span class = "buttontext">E-Mail</span></button></a>
+              </div>
+            </div>
+            <br>
+          </div>
+          </div>
+
+    </div>
+    <br>
     </script>
     <div class = "header shadow">
       <center><img src = "img/title.png" id = "titleimg"></center>
@@ -74,7 +94,6 @@
     <script type="text/javascript">
       Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
       var temp = $("#studyCard").html();
-      temp = "";
       var us_temp = _.template(temp);
       var createCard = function(a) {$("#target").append(us_temp(a))};
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
@@ -83,7 +102,9 @@
       query.find({
               success: function(results) {
                 results.forEach(function(result){
-                    createCard(result.attributes)
+                    var cardinfo = result.attributes;
+                    cardinfo['objectId'] = result.id;
+                    createCard(cardinfo)
                   });
               },
               error: function(error) {
