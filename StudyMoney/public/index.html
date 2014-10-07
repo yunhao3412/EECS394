@@ -17,7 +17,7 @@
     <script src="js/jquery.mobile-1.4.4.min.js"></script>
   </head>
   <body>
-
+    
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
     <div class = "cardpadding">
@@ -47,7 +47,7 @@
                       <span class = "cardBottom"><%= duration %></span>
                     </div>
                     <div class = "col-xs-6 text-right">
-                      <span class = "cardBottom"><%= expiration %> days left</span>
+                      <span class = "cardBottom"><%= location %></span>
                     </div>
                   </div>
                   <br>
@@ -84,6 +84,15 @@
     </div>
     <br>
 
+    <div class = "filters container-fluid">
+      <div class = "col-xs-6">
+        <button id="pay" class="btn btn-default" onclick="redrawCards('pay')">Sort by Pay</button>
+      </div>
+      <div class = "col-xs-6">
+        <button id="datePosted" class="btn btn-default" onclick="redrawCards('updatedAt')"> Sort by Date Posted</button>
+      </div>
+    </div>
+    
     <!-- Create target -->
     <div class = "cards">
     <div id="target"></div>
@@ -112,6 +121,27 @@
               }
             });
 
+      function redrawCards(filter) {
+        //var datePosted = document.getElementById("datePosted").checked;
+        //var pay = document.getElementById("pay").checked;
+        
+        var target = $("#target").html('');
+        var q = new Parse.Query(ResearchStudy);
+        q.descending(filter);
+        
+        q.find({
+          success: function(results) {
+            results.forEach(function(result){
+                var cardinfo = result.attributes;
+                cardinfo['objectId'] = result.id;
+                createCard(cardinfo)
+              });
+          },
+          error: function(error) {
+            // error is an instance of Parse.Error.
+              }
+            });
+      }
       //var template = $("#studyCard").html();
       //$("#target").html(_.template(template,{items:items}));
     </script>
