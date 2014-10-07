@@ -17,7 +17,7 @@
     <script src="js/jquery.mobile-1.4.4.min.js"></script>
   </head>
   <body>
-
+    
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
     <a href= "<%= URL %>">
@@ -64,6 +64,11 @@
     </div>
     <br>
 
+    <form name="filters">
+      <input type="radio" name="f" id="pay" onchange="redrawCards()" checked>Pay</input>
+      <input type="radio" name="f" id="datePosted" onchange="redrawCards()">Date Posted</input>
+    </form>
+    
     <!-- Create target -->
     <div class = "cards">
     <div id="target"></div>
@@ -74,7 +79,6 @@
     <script type="text/javascript">
       Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
       var temp = $("#studyCard").html();
-      temp = "";
       var us_temp = _.template(temp);
       var createCard = function(a) {$("#target").append(us_temp(a))};
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
@@ -91,6 +95,29 @@
               }
             });
 
+      function redrawCards() {
+        var datePosted = document.getElementById("datePosted").checked;
+        var pay = document.getElementById("pay").checked;
+        
+        var target = $("#target").html('');
+        var q = new Parse.Query(ResearchStudy);
+        if (datePosted) {
+          q.descending("updatedAt");
+        } else if (pay) {
+          q.descending("pay");
+        }
+        
+        q.find({
+          success: function(results) {
+            results.forEach(function(result){
+                createCard(result.attributes)
+              });
+          },
+          error: function(error) {
+            // error is an instance of Parse.Error.
+              }
+            });
+      }
       //var template = $("#studyCard").html();
       //$("#target").html(_.template(template,{items:items}));
     </script>
