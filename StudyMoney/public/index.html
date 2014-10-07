@@ -47,7 +47,7 @@
                     <span class = "cardBottom"><%= duration %></span>
                   </div>
                   <div class = "col-xs-6 text-right">
-                    <span class = "cardBottom"><%= expiration %> days left</span>
+                    <span class = "cardBottom"><%= location %></span>
                   </div>
                 </div>
                 <br>
@@ -74,7 +74,6 @@
     <script type="text/javascript">
       Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
       var temp = $("#studyCard").html();
-      temp = "";
       var us_temp = _.template(temp);
       var createCard = function(a) {$("#target").append(us_temp(a))};
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
