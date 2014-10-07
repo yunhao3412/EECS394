@@ -2,22 +2,25 @@
 <html>
   <head>
     <!-- Credit to Shanimal on StackExchange for template code -->
-    <title>Template Test</title>
+    <title>StudyMoney</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/researchCardExample.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
 
     <!-- Install jQuery and underscore -->
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
     <script src="https://www.parsecdn.com/js/parse-1.1.15.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.4.min.js"></script>
   </head>
   <body>
 
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
+    <a href= "<%= URL %>">
     <div class = "cardpadding">
         <div class = "container-fluid card">
           <div class = "row row-xs-height">
@@ -54,26 +57,29 @@
         </div>
       </div>
       <br>
+      </a>
     </script>
-
-    <div class = "header">
+    <div class = "header shadow">
       <center><img src = "img/title.png" id = "titleimg"></center>
     </div>
     <br>
 
     <!-- Create target -->
-
+    <div class = "cards">
     <div id="target"></div>
+    </div>
 
     <!-- Some code to fetch the data and apply template -->
 
     <script type="text/javascript">
       Parse.initialize("2Adfr8LRfl5VwX8WgHQHRKZo6GpNcsiUvdBXoBya", "xGwCwmFcuKXxI9JwDuRcJs8uch6UMQAYPre18dzH");
       var temp = $("#studyCard").html();
+      temp = "";
       var us_temp = _.template(temp);
       var createCard = function(a) {$("#target").append(us_temp(a))};
       var ResearchStudy = Parse.Object.extend("ResearchStudy");
       var query = new Parse.Query(ResearchStudy);
+      query.descending("pay");
       query.find({
               success: function(results) {
                 results.forEach(function(result){
