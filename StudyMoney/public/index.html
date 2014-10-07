@@ -64,10 +64,14 @@
     </div>
     <br>
 
-    <form name="filters">
-      <input type="radio" name="f" id="pay" onchange="redrawCards()" checked>Pay</input>
-      <input type="radio" name="f" id="datePosted" onchange="redrawCards()">Date Posted</input>
-    </form>
+    <div class = "container-fluid">
+      <div class = "col-xs-6">
+        <button id="pay" class="btn btn-default" onclick="redrawCards('pay')">Sort by Pay</button>
+      </div>
+      <div class = "col-xs-6">
+        <button id="datePosted" class="btn btn-default" onclick="redrawCards('updatedAt')"> Sort by Date Posted</button>
+      </div>
+    </div>
     
     <!-- Create target -->
     <div class = "cards">
@@ -95,17 +99,13 @@
               }
             });
 
-      function redrawCards() {
-        var datePosted = document.getElementById("datePosted").checked;
-        var pay = document.getElementById("pay").checked;
+      function redrawCards(filter) {
+        //var datePosted = document.getElementById("datePosted").checked;
+        //var pay = document.getElementById("pay").checked;
         
         var target = $("#target").html('');
         var q = new Parse.Query(ResearchStudy);
-        if (datePosted) {
-          q.descending("updatedAt");
-        } else if (pay) {
-          q.descending("pay");
-        }
+        q.descending(filter);
         
         q.find({
           success: function(results) {
