@@ -21,7 +21,7 @@
     <!-- Create your template -->
     <script type="foo/bar" id="studyCard">
     <div class = "cardpadding">
-          <a data-toggle="collapse" href="#collapse<%= objectId %>">
+          <a data-toggle="collapse" href="#collapse<%= objectId %>" class = "card" style = "z-index: 1">
           <div class = "container-fluid card">
             <div class = "row row-xs-height">
               <div class = "col-xs-3 col-xs-height col-middle">
@@ -56,26 +56,25 @@
             </div>
           </div>
           </a>
-          <div id="collapse<%= objectId %>" class="collapse">
-          <div class = "container-fluid cardinfo">
-            <div class = "row row-xs-height">
-              <div class = "col-offset-xs-2 col-xs-10 col-xs-height">
-                <br>
-                <span class = "cardDescription">Description</span>
-                <br>
-                <span class = "cardReq"><%= description %></span>
-              </div>
-            </div>
-            <br>
-            <div class = "row row-xs-height descriptionbuttonrow">
-              <div class = "col-xs-12 col-xs-height text-center">
-                <a href="mailto:<%= contact %>"><button type="button" class="btn btn-primary btn-lg btn-block"><span class = "buttontext">E-Mail</span></button></a>
-              </div>
-            </div>
-            <br>
+          <div id="collapse<%= objectId %>" class="collapse" class = "cardinfo">
+			  <div class = "container-fluid cardinfo">
+				<div class = "row row-xs-height">
+				  <div class = "col-offset-xs-2 col-xs-10 col-xs-height">
+					<br>
+					<span class = "cardDescription">Description</span>
+					<br>
+					<span class = "cardReq"><%= description %></span>
+				  </div>
+				</div>
+				<br>
+				<div class = "row row-xs-height descriptionbuttonrow">
+				  <div class = "col-xs-12 col-xs-height text-center">
+					<a href="mailto:<%= contact %>"><button type="button" class="btn btn-primary btn-lg btn-block"><span class = "buttontext">E-Mail</span></button></a>
+				  </div>
+				</div>
+				<br>
+			  </div>
           </div>
-          </div>
-
     </div>
     <br>
     </script>
@@ -85,12 +84,14 @@
     <br>
 
     <div class = "filters container-fluid">
-      <div class = "col-xs-6">
-        <button id="pay" class="btn btn-default" onclick="redrawCards('pay')">Sort by Pay</button>
-      </div>
-      <div class = "col-xs-6">
-        <button id="datePosted" class="btn btn-default" onclick="redrawCards('updatedAt')"> Sort by Date Posted</button>
-      </div>
+		<div class = "row row-xs-height">
+		  <div class = "col-xs-6 col-xs-height">
+			<button id="pay" class="btn btn-default btn-lg btn-block" onclick="redrawCards('pay')"><span class = "buttontext">Sort by Pay</span></button>
+		  </div>
+		  <div class = "col-xs-6 col-xs-height">
+			<button id="datePosted" class="btn btn-default btn-lg btn-block" onclick="redrawCards('updatedAt')"><span class = "buttontext">Sort by Date Posted</span></button>
+		  </div>
+		</div>
     </div>
     
     <!-- Create target -->
